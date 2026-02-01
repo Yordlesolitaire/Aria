@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7x2cep8djc2j"]
+
+[ext_resource type="Script" uid="uid://3ml48m7g03fi" path="res://world.gd" id="1_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://cyhr7uuy8t1cw" path="res://map.tscn" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://dkkc1fxf26rlf" path="res://Aria.tscn" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://bxt25fo2x4t3r" path="res://Pause.tscn" id="4_aqk2v"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_aqk2v")
+
+[node name="Map" parent="." instance=ExtResource("1_f3sb7")]
+
+[node name="Aria" parent="." instance=ExtResource("2_fj7yv")]
+scale = Vector2(10, 10)
+
+[node name="Pause" parent="." instance=ExtResource("4_aqk2v")]
