@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkkc1fxf26rlf"]
+
+[ext_resource type="Script" uid="uid://cx1mhcslroiwb" path="res://aria.gd" id="1_28ovu"]
+[ext_resource type="SpriteFrames" uid="uid://drxa6jlrrnakm" path="res://Aria_sprite.tres" id="3_ksrt4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_28ovu"]
+radius = 8.0
+height = 32.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ff34"]
+
+[node name="Aria" type="CharacterBody2D"]
+script = ExtResource("1_28ovu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_28ovu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_8ff34")
+sprite_frames = ExtResource("3_ksrt4")
+animation = &"idle"
+frame_progress = 0.50346774

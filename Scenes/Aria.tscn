@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://dkkc1fxf26rlf"]
+
+[ext_resource type="Script" uid="uid://cctn6ggsogvdw" path="res://Script/aria.gd" id="1_04rmg"]
+[ext_resource type="Texture2D" uid="uid://caoppwv5q3jk7" path="res://ARIA/lanterne.png" id="3_e2i4p"]
+[ext_resource type="SpriteFrames" uid="uid://drxa6jlrrnakm" path="res://Aria_sprite.tres" id="3_ksrt4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_28ovu"]
+radius = 8.0
+height = 32.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ff34"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_04rmg"]
+radius = 75.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e2i4p"]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0dn53"]
+radius = 2.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dn53"]
+atlas = ExtResource("3_e2i4p")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rwg5y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dn53")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Aria" type="CharacterBody2D"]
+script = ExtResource("1_04rmg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_28ovu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_8ff34")
+sprite_frames = ExtResource("3_ksrt4")
+animation = &"idle"
+frame_progress = 0.50346774
+
+[node name="Detection" type="Area2D" parent="."]
+show_behind_parent = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+shape = SubResource("CircleShape2D_04rmg")
+debug_color = Color(0.9577566, 2.8878452e-07, 0.5334733, 0.41960785)
+
+[node name="Limit" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limit"]
+shape = SubResource("CircleShape2D_e2i4p")
+
+[node name="Lanterne" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lanterne"]
+shape = SubResource("CircleShape2D_0dn53")
+disabled = true
+debug_color = Color(2.117753e-06, 0.6459153, 0.25637174, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Lanterne"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_rwg5y")

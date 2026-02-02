@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7x2cep8djc2j"]
+
+[ext_resource type="Script" uid="uid://3ml48m7g03fi" path="res://Script/world.gd" id="1_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://cyhr7uuy8t1cw" path="res://Scenes/map.tscn" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://dkkc1fxf26rlf" path="res://Scenes/Aria.tscn" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://bxt25fo2x4t3r" path="res://Scenes/Pause.tscn" id="4_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://bxwsjk8f6rpn1" path="res://Ennemi1.tscn" id="5_fo5ed"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_aqk2v")
+
+[node name="Map" parent="." instance=ExtResource("1_f3sb7")]
+
+[node name="Aria" parent="." instance=ExtResource("2_fj7yv")]
+position = Vector2(100, 545)
+scale = Vector2(5, 5)
+
+[node name="Pause" parent="." instance=ExtResource("4_aqk2v")]
+
+[node name="Ennemi1" parent="." instance=ExtResource("5_fo5ed")]
+position = Vector2(200, 545)
