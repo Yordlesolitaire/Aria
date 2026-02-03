@@ -1,15 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7x2cep8djc2j"]
+[gd_scene load_steps=9 format=3 uid="uid://c7x2cep8djc2j"]
 
 [ext_resource type="Script" uid="uid://3ml48m7g03fi" path="res://Script/world.gd" id="1_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://cyhr7uuy8t1cw" path="res://Scenes/map.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://dkkc1fxf26rlf" path="res://Scenes/Aria.tscn" id="2_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://bxt25fo2x4t3r" path="res://Scenes/Pause.tscn" id="4_aqk2v"]
-[ext_resource type="PackedScene" uid="uid://bxwsjk8f6rpn1" path="res://Ennemi1.tscn" id="5_fo5ed"]
+[ext_resource type="PackedScene" uid="uid://bxwsjk8f6rpn1" path="res://Scenes/Ennemi1.tscn" id="5_fo5ed"]
+
+[sub_resource type="Environment" id="Environment_fo5ed"]
+glow_enabled = true
+glow_normalized = true
+glow_strength = 2.0
+glow_bloom = 1.0
+glow_blend_mode = 0
+glow_hdr_threshold = 4.0
+glow_hdr_scale = 4.0
+glow_hdr_luminance_cap = 256.0
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_5ukr8"]
+
+[sub_resource type="Compositor" id="Compositor_o06y3"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_aqk2v")
 
 [node name="Map" parent="." instance=ExtResource("1_f3sb7")]
+light_mask = 2
 
 [node name="Aria" parent="." instance=ExtResource("2_fj7yv")]
 position = Vector2(100, 538)
@@ -18,4 +33,9 @@ scale = Vector2(5, 5)
 [node name="Pause" parent="." instance=ExtResource("4_aqk2v")]
 
 [node name="Ennemi1" parent="." instance=ExtResource("5_fo5ed")]
-position = Vector2(100, 350)
+position = Vector2(574, 376)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fo5ed")
+camera_attributes = SubResource("CameraAttributesPractical_5ukr8")
+compositor = SubResource("Compositor_o06y3")

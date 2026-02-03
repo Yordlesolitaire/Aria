@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://cnovuai1hsnoc"]
+
+[ext_resource type="Script" uid="uid://bu2uf4ug8mm6" path="res://Scenes/lanterne.gd" id="1_bqlrn"]
+[ext_resource type="Shader" uid="uid://bugrw1gnkon1l" path="res://shaders/lanterne.gdshader" id="1_hcdp0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0dn53"]
+radius = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bqlrn"]
+shader = ExtResource("1_hcdp0")
+shader_parameter/amplitude = 10.0
+shader_parameter/speed = 2.0
+shader_parameter/scale_amount = 0.05
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gy54m"]
+load_path = "res://.godot/imported/lanterne (1).png-e7cc0cb4665a19dd5af0a57fa34e00ea.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mckln"]
+shader = ExtResource("1_hcdp0")
+shader_parameter/amplitude = 10.0
+shader_parameter/speed = 2.0
+shader_parameter/scale_amount = 0.05
+
+[sub_resource type="Gradient" id="Gradient_hcdp0"]
+offsets = PackedFloat32Array(0, 0.60714287, 0.6785714)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bqlrn"]
+gradient = SubResource("Gradient_hcdp0")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[node name="Lanterne" type="CharacterBody2D"]
+script = ExtResource("1_bqlrn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0dn53")
+disabled = true
+debug_color = Color(2.117753e-06, 0.6459153, 0.25637174, 0.41960785)
+
+[node name="lanterne" type="Sprite2D" parent="."]
+light_mask = 2
+material = SubResource("ShaderMaterial_bqlrn")
+scale = Vector2(0.5, 0.5)
+texture = SubResource("CompressedTexture2D_gy54m")
+hframes = 5
+frame = 2
+
+[node name="DirectionalLight2D" type="PointLight2D" parent="."]
+material = SubResource("ShaderMaterial_mckln")
+scale = Vector2(0.5, 0.5)
+shadow_enabled = true
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_bqlrn")
