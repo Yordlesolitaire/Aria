@@ -41,6 +41,7 @@ func zone(delta:float):
 		if elt.is_in_group("ennemi"):
 			var dir = elt.global_position - Zone.global_position
 			var angle = dir.angle() # radians
-			lanterne.position = Vector2(cos(angle), sin(angle)) * $Limit/CollisionShape2D.shape.radius
+			lanterne.position = (Vector2(cos(angle), sin(angle)) * $Limit/CollisionShape2D.shape.radius)
+			lanterne.rotation = angle
 		else:
-			lanterne.move(100)
+			lanterne.rotation_degrees = 0

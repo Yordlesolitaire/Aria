@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkkc1fxf26rlf"]
+[gd_scene load_steps=8 format=3 uid="uid://dkkc1fxf26rlf"]
 
 [ext_resource type="Script" uid="uid://cctn6ggsogvdw" path="res://Script/aria.gd" id="1_04rmg"]
 [ext_resource type="PackedScene" uid="uid://cnovuai1hsnoc" path="res://Scenes/lanterne.tscn" id="3_e2i4p"]
@@ -15,9 +15,6 @@ radius = 75.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e2i4p"]
 radius = 25.0
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_e2i4p"]
-polygon = PackedVector2Array(-8, -16, 8, -16, 8, 16, -8, 16)
 
 [node name="Aria" type="CharacterBody2D"]
 script = ExtResource("1_04rmg")
@@ -39,16 +36,12 @@ show_behind_parent = true
 shape = SubResource("CircleShape2D_04rmg")
 debug_color = Color(0.9577566, 2.8878452e-07, 0.5334733, 0.41960785)
 
+[node name="Lanterne" parent="." instance=ExtResource("3_e2i4p")]
+light_mask = 2
+z_index = 10
+
 [node name="Limit" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Limit"]
 shape = SubResource("CircleShape2D_e2i4p")
-
-[node name="Lanterne" parent="." instance=ExtResource("3_e2i4p")]
-show_behind_parent = true
-light_mask = 2
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-visible = false
-occluder = SubResource("OccluderPolygon2D_e2i4p")
-sdf_collision = false
+debug_color = Color(0, 0.40847915, 0, 0.41960785)

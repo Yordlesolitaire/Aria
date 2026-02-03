@@ -23,7 +23,7 @@ shader_parameter/scale_amount = 0.05
 
 [sub_resource type="Gradient" id="Gradient_hcdp0"]
 offsets = PackedFloat32Array(0, 0.60714287, 0.6785714)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.19607843, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_bqlrn"]
 gradient = SubResource("Gradient_hcdp0")
